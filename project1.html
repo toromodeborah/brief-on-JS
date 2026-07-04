@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Birthday Countdown</title>
+    </head>
+    <body>
+        <h1>My Birthday Countdown</h1>
+        <button onclick="myBirthdayDate()">My Birthday Date</button>
+        <button onclick="updateCountdown()">Show Countdown</button>
+        <p id="countdown"></p>
+        <script>
+            function myBirthdayDate() {
+                let birthdayMessage = "My birthday is on October 12th!";
+                alert(birthdayMessage);
+            }
+
+            function updateCountdown() {
+                let today = new Date();
+                let birthday = new Date(today.getFullYear(), 10, 12); // October 12th
+                if (today > birthday) {
+                    birthday.setFullYear(birthday.getFullYear() + 1); // Next year
+                }
+                let diffTime = birthday - today;
+                let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                document.getElementById("countdown").textContent = `There are ${diffDays} days until my birthday!`;
+
+                if (diffDays == "myBirthdayDate") {
+                    document.getElementById("countdown").textContent = "Happy Birthday!";
+                }
+            }
+        </script>
+    </body>
+</html>
